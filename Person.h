@@ -55,9 +55,24 @@ class Player: public Person{
     public:
         //定义Player();
         //修改成员变量
-        bool ChangeMP(int InMP); // 最大蓝条
-        bool ChangeEXP(int InExp); // 涉及到超过限度后自动升级
-        bool ChangeMoney(int InMoney);
+        bool ChangeMP(int InMP) {
+    if (MP + InMP > MaxMP || MP + InMP < 0) return false;
+    MP += InMP;
+    return true;
+}
+bool ChangeEXP(int InEXP){ // 涉及到超过限度后自动升级
+    if (EXP + InEXP < 0) return false;
+    EXP += InEXP;
+    if (EXP > MaxEXP) {
+        UpLevel();
+        EXP -= MaxEXP;
+    }
+    return true;
+}
+bool ChangeMoney(int InMoney) {
+    if (Money + InMoney < 0) return false;
+    else return true;
+}
         //获取成员变量
         int GetMP(){return MP;}
         int GetMaxMP(){return MaxMP;}
