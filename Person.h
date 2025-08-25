@@ -29,19 +29,23 @@ class Person{
             Y = InY;
         }
         //重载运算符
-        Person& operator+(int value) {
+        Person& operator+=(int value) {
             if (HP + value > MaxHP) {
-                this->HP = MaxHP;
+                HP = MaxHP;
             }
-            else this->HP += value;
+            else {
+                HP += value;
+            }
             return *this;
         }
 
-        Person& operator-(int value) {
+        Person& operator-=(int value) {
             if (HP - value < 0) {
-                this->HP = 0;
+                HP = 0;
             }
-            else this->HP -= value;
+            else {
+                HP -= value;
+            }
             return *this;
         }
 };
