@@ -13,6 +13,7 @@ class Person{
         string Name;
     public:
         Person(int InHP, int InAttack, int InDefend, string InName, int InIndex, int Inx, int Iny):HP(InHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex), x(Inx), y(Iny){}
+        //获取成员变量
         int GetHP(){ return HP; }
         string GetName(){ return Name; }
         int GetAttack(){ return Attack; }
@@ -20,6 +21,7 @@ class Person{
         int GetIndex(){ return Index; }
         int Getx() { return x; }
         int Gety() { return y; }
+        //修改成员变量
         void ChangeIndex(int InIndex){ Index = InIndex; }
         void ChangeXY(int Inx, Inty){
             x = Inx;
@@ -40,9 +42,9 @@ class Player: public Person{
         Skill PlayerSkill;
     public:
         //定义Player();
+        //修改成员变量
         bool ChangeMP(int InMP);
         bool ChangeExp(int InExp); // 涉及到超过限度后自动升级
-        bool UpLevel();
         bool ChangeSkillPoints(int InSkillPoints); // 涉及到超过限度后自动升级
         bool ChangeMoney(int InMoney);
 };
