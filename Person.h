@@ -5,20 +5,26 @@ using namespace std;
 #define PERSON_H
 class Person{
     protected:
-        int HP, Attack, Defend, index;
+        int HP, Attack, Defend, Index, x, y;
         /*
         HP: 生命值
         Index: 位置的索引
         */
         string Name;
     public:
-        Person(int InHP, int InAttack, int InDefend, string InName, int InIndex):HP(InHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex){}
+        Person(int InHP, int InAttack, int InDefend, string InName, int InIndex, int Inx, int Iny):HP(InHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex), x(Inx), y(Iny){}
         int GetHP(){ return HP; }
         string GetName(){ return Name; }
         int GetAttack(){ return Attack; }
         int GetDefend(){ return Defend; }
         int GetIndex(){ return Index; }
+        int Getx() { return x; }
+        int Gety() { return y; }
         void ChangeIndex(int InIndex){ Index = InIndex; }
+        void ChangeXY(int Inx, Inty){
+            x = Inx;
+            y = Iny;
+        }
 };
 class Player: public Person{
     private:
@@ -35,9 +41,9 @@ class Player: public Person{
     public:
         //定义Player();
         bool ChangeMP(int InMP);
-        bool ChangeExp(int InExp);
+        bool ChangeExp(int InExp); // 涉及到超过限度后自动升级
         bool UpLevel();
-        bool ChangeSkillPoints(int InSkillPoints);
+        bool ChangeSkillPoints(int InSkillPoints); // 涉及到超过限度后自动升级
         bool ChangeMoney(int InMoney);
 };
 #endif //PERSON_H
