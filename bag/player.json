@@ -1,0 +1,35 @@
+{
+    "equipped_chest": null,
+    "equipped_helmet": null,
+    "equipped_shoes": 601,
+    "equipped_weapon": 101,
+    "gold": 850,
+    "inventory": [
+        {
+            "id": 101,
+            "quantity": 1
+        },
+        {
+            "id": 601,
+            "quantity": 1
+        },
+        {
+            "id": 602,
+            "quantity": 1
+        },
+        {
+            "id": 301,
+            "quantity": 8
+        },
+        {
+            "id": 401,
+            "quantity": 20
+        }
+    ],
+    "level": 5,
+    "name": "冒险者",
+    "hp": 100,
+    "max_hp": 100,
+    "mp": 50,
+    "max_mp": 50
+}
