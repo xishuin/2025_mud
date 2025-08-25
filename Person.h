@@ -13,6 +13,7 @@ class Person{
         string Name;
     public:
         Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY):HP(InHP), MaxHP(InMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY){}
+        virtual ~Person() {}
         //获取成员变量
         int GetHP() const { return HP; }
         int GetMaxHP() const { return MaxHP; }
