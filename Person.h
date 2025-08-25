@@ -12,7 +12,7 @@ class Person{
         */
         string Name;
     public:
-        Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int Inx, int Iny):HP(InHP), MaxHP(IntMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex), X(Inx), Y(Iny){}
+        Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY):HP(InHP), MaxHP(IntMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex), X(InX), Y(InY){}
         //获取成员变量
         int GetHP(){ return HP; }
         int GetMaxHP(){ return MaxHP; }
@@ -20,13 +20,13 @@ class Person{
         int GetAttack(){ return Attack; }
         int GetDefend(){ return Defend; }
         int GetIndex(){ return Index; }
-        int Getx() { return X; }
-        int Gety() { return Y; }
+        int GetX() { return X; }
+        int GetY() { return Y; }
         //修改成员变量
         void ChangeIndex(int InIndex){ Index = InIndex; }
-        void ChangeXY(int Inx, Inty){
-            X = Inx;
-            Y = Iny;
+        void ChangeXY(int InX, IntY){
+            X = InX;
+            Y = InY;
         }
         //重载运算符
         Person& operator+(int value) {
