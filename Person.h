@@ -66,8 +66,9 @@ class Player: public Person{
         //定义Player();
         //修改成员变量
         bool ChangeMP(int InMP) {
-            if (MP + InMP > MaxMP || MP + InMP < 0) return false;
+            if (MP + InMP < 0) return false;
             MP += InMP;
+            if (MP > MaxMP) MP = MaxMP;
             return true;
         }
         bool ChangeEXP(int InEXP) {
