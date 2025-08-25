@@ -43,7 +43,7 @@ Skill& GetSkill() { return PlayerSkill; }
 
 ```C++
 void ChangeIndex(int InIndex);
-void ChangeXY(int InX, IntY);
+void ChangeXY(int InX, int InY);
 // HP：重载+-，使用必须依照以下方式
 Person p(……);
 p += 3
@@ -51,10 +51,12 @@ p -= 1
 //不可以使用 p = p + 1这种形式
 
 // 主角专属
+//这里输入改变的值，可以输入负数表示减
 bool ChangeMP(int InMP);
 bool ChangeEXP(int InExp); // 会自动升级，并且如果一次性得到很多经验，可以自动连续升好几级
 bool ChangeMoney(int InMoney);
 ```
+
 
 
 
