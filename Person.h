@@ -51,6 +51,7 @@ class Player: public Person{
         EXP: 经验值
         */
         Skill PlayerSkill;
+        bool UpLevel(); // 涉及到改蓝条、血条、技能
     public:
         //定义Player();
         //修改成员变量
@@ -64,6 +65,5 @@ class Player: public Person{
         int GetMaxEXP(){return MaxEXP;}
         int GetLevel(){return Level;}
         int GetMoney(){return Money;}
-        bool UpLevel(); // 涉及到改蓝条、血条、技能
 };
 #endif //PERSON_H
