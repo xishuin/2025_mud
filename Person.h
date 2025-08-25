@@ -70,7 +70,7 @@ class Player: public Person{
             MP += InMP;
             return true;
         }
-        bool ChangeEXP(int InEXP) { // 涉及到超过限度后自动升级
+        bool ChangeEXP(int InEXP) {
             if (EXP + InEXP < 0) return false;
             EXP += InEXP;
             while (EXP > MaxEXP) {
