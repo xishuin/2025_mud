@@ -135,7 +135,7 @@ public:
         user->ChangeMP(-mpCost); // 消耗MP
         int damage = effectValue - target->GetDefend();
         if (damage < 0) damage = 0;
-        *target -= damage;
+        *target -= damage;.
         
         return true;
     }
