@@ -40,11 +40,16 @@ int GetMoney() { return Money; }
 ```C++
 void ChangeIndex(int InIndex);
 void ChangeXY(int InX, IntY);
-// HP：重载+-
+// HP：重载+-，使用必须依照以下方式
+Person p(……);
+p += 3
+p -= 1
+//不可以使用 p = p + 1这种形式
 
 // 主角专属
 bool ChangeMP(int InMP);
 bool ChangeEXP(int InExp); // 会自动升级
 bool ChangeMoney(int InMoney);
 ```
+
 
