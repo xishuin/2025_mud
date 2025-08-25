@@ -14,14 +14,14 @@ class Person{
     public:
         Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY):HP(InHP), MaxHP(InMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY){}
         //获取成员变量
-        int GetHP(){ return HP; }
-        int GetMaxHP(){ return MaxHP; }
-        string GetName(){ return Name; }
-        int GetAttack(){ return Attack; }
-        int GetDefend(){ return Defend; }
-        int GetIndex(){ return Index; }
-        int GetX() { return X; }
-        int GetY() { return Y; }
+        int GetHP() const { return HP; }
+        int GetMaxHP() const { return MaxHP; }
+        string GetName() const { return Name; }
+        int GetAttack() const { return Attack; }
+        int GetDefend() const { return Defend; }
+        int GetIndex() const { return Index; }
+        int GetX() const { return X; }
+        int GetY() const { return Y; }
         //修改成员变量
         void ChangeIndex(int InIndex){ Index = InIndex; }
         void ChangeXY(int InX, int InY){
@@ -87,11 +87,15 @@ class Player: public Person{
             }
         }
         //获取成员变量
-        int GetMP(){return MP;}
-        int GetMaxMP(){return MaxMP;}
-        int GetEXP(){return EXP;}
-        int GetMaxEXP(){return MaxEXP;}
-        int GetLevel(){return Level;}
-        int GetMoney(){return Money;}
+        int GetMP() const {return MP;}
+        int GetMaxMP() const {return MaxMP;}
+        int GetEXP() const {return EXP;}
+        int GetMaxEXP() const {return MaxEXP;}
+        int GetLevel() const {return Level;}
+        int GetMoney() const {return Money;}
+        Package& GetPackage() { return PlayerPackage; }
+        Weapons& GetWeapons() { return PlayerWeapons; }
+        Armor& GetArmor() { return PlayerArmor; }
+        Skill& GetSkill() { return PlayerSkill; }
 };
 #endif //PERSON_H
