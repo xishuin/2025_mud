@@ -1,16 +1,15 @@
 # 2025_mud
 
-
-
 A group that makes MUDS during the summer semeste
 
-## todo list
 
 ### 角色模块
+## todo list
 
-人物数值（hp,mp,技能,装备,经验）
+背包模块
 
-装备获取，穿戴，售卖
-
-技能学习（使用售卖获得的金币？）
+1. 物品获取
+2. 物品出售可以获取金币
+3. 装备加成计算
+4. 道具使用
 
