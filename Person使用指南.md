@@ -53,10 +53,11 @@ p -= 1
 // 主角专属
 //这里输入改变的值，可以输入负数表示减
 bool ChangeMP(int InMP);
-bool ChangeEXP(int InExp); // 会自动升级，并且如果一次性得到很多经验，可以自动连续升好几级
+bool ChangeEXP(int InExp); 
 bool ChangeMoney(int InMoney);
+/*
+MP小于0会返回false，MP不会改变，MP达到上限后MP=MaxMP
+EXP会自动升级，并且如果一次性得到很多经验，可以自动连续升好几级
+Money小于0后会返回false，Money不会改变
+*/
 ```
-
-
-
-
