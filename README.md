@@ -1,6 +1,6 @@
 # 2025_mud
 
-A group that makes MUDS during the summer semeste
+A group that makes MUDS during the summer semester
 
 
 ### 角色模块
