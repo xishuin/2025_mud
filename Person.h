@@ -66,4 +66,10 @@ class Player: public Person{
         int GetLevel(){return Level;}
         int GetMoney(){return Money;}
 };
+
+class Other: public Person  {
+    private:
+        bool Stance; //立场
+        Dropped OtherDropped;
+};
 #endif //PERSON_H
