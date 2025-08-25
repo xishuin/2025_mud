@@ -5,7 +5,7 @@ using namespace std;
 #define PERSON_H
 class Person{
     protected:
-        int HP, MaxHP, Attack, Defend, Index, x, y;
+        int HP, MaxHP, Attack, Defend, Index, X, Y;
         /*
         HP: 生命值
         Index: 位置的索引
