@@ -27,6 +27,16 @@ class Person{
             x = Inx;
             y = Iny;
         }
+        //重载运算符
+        Person& operator+(int value) {
+            this->HP += value;
+            return *this;
+        }
+
+        Person& operator-(int value) {
+            this->HP -= value;
+            return *this;
+        }
 };
 class Player: public Person{
     private:
