@@ -8,16 +8,17 @@ class Person{
         int HP, Attack, Defend, index;
         /*
         HP: 生命值
-        index: 位置的索引
+        Index: 位置的索引
         */
         string Name;
     public:
-        Person(int InHP, int InAttack, int InDefend, string InName, int Inindex):HP(InHP),Attack(InAttack), Defend(InDefend), Name(InName), index(Inindex){}
+        Person(int InHP, int InAttack, int InDefend, string InName, int InIndex):HP(InHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex){}
         int GetHP(){ return HP; }
         string GetName(){ return Name; }
         int GetAttack(){ return Attack; }
         int GetDefend(){ return Defend; }
-        int GetIndex(){ return index; }
+        int GetIndex(){ return Index; }
+        void ChangeIndex(int InIndex){ Index = InIndex; }
 };
 class Player: public Person{
     private:
