@@ -1,8 +1,8 @@
+#ifndef PERSON_H
+#define PERSON_H
 #include <string>
 using namespace std;
 
-#ifndef PERSON_H
-#define PERSON_H
 class Person{
     protected:
         int HP, MaxHP, Attack, Defend, Index, X, Y;
