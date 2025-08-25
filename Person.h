@@ -64,5 +64,6 @@ class Player: public Person{
         int GetMaxEXP(){return MaxEXP;}
         int GetLevel(){return Level;}
         int GetMoney(){return Money;}
+        bool UpLevel(); // 涉及到改蓝条、血条、技能
 };
 #endif //PERSON_H
