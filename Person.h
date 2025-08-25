@@ -12,7 +12,7 @@ class Person{
         */
         string Name;
     public:
-        Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY):HP(InHP), MaxHP(IntMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), index(InIndex), X(InX), Y(InY){}
+        Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY):HP(InHP), MaxHP(InMaxHP),Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY){}
         //获取成员变量
         int GetHP(){ return HP; }
         int GetMaxHP(){ return MaxHP; }
@@ -24,7 +24,7 @@ class Person{
         int GetY() { return Y; }
         //修改成员变量
         void ChangeIndex(int InIndex){ Index = InIndex; }
-        void ChangeXY(int InX, IntY){
+        void ChangeXY(int InX, int IntY){
             X = InX;
             Y = InY;
         }
@@ -51,7 +51,7 @@ class Player: public Person{
         EXP: 经验值
         */
         Skill PlayerSkill;
-        bool UpLevel(); // 涉及到改蓝条、血条、技能
+        void UpLevel(); // 涉及到改蓝条、血条、技能
     public:
         //定义Player();
         //修改成员变量
