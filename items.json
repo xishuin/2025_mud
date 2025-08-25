@@ -1,0 +1,110 @@
+{
+  "101": {
+    "name": "新手铁剑",
+    "description": "一把普普通通的铁剑，适合新手冒险者。",
+    "price": 50,
+    "type": "Equipment",
+    "slot": "Weapon",
+    "rarity": "COMMON",
+    "level_req": 1,
+    "attack": 5,
+    "defense": 0
+  },
+  "102": {
+    "name": "精钢长剑",
+    "description": "由技艺精湛的工匠打造，锋利无比。",
+    "price": 250,
+    "type": "Equipment",
+    "slot": "Weapon",
+    "rarity": "RARE",
+    "level_req": 5,
+    "attack": 12,
+    "defense": 0
+  },
+  "103": {
+    "name": "巫师法杖",
+    "description": "一根朴实无华的法杖，顶端镶嵌着一颗能汇聚能量的劣质水晶。",
+    "price": 220,
+    "type": "Equipment",
+    "slot": "Weapon",
+    "rarity": "UNCOMMON",
+    "level_req": 4,
+    "attack": 9,
+    "defense": 0
+  },
+  "201": {
+    "name": "破旧皮甲",
+    "description": "勉强能提供一些防护。",
+    "price": 40,
+    "type": "Equipment",
+    "slot": "Armor",
+    "rarity": "COMMON",
+    "level_req": 1,
+    "attack": 0,
+    "defense": 3
+  },
+  "202": {
+    "name": "锁子甲",
+    "description": "由无数铁环编织而成，提供了优良的防护。",
+    "price": 300,
+    "type": "Equipment",
+    "slot": "Armor",
+    "rarity": "RARE",
+    "level_req": 5,
+    "attack": 0,
+    "defense": 10
+  },
+  "203": {
+    "name": "精钢板甲",
+    "description": "厚重的钢制板甲，能抵御强力的攻击。",
+    "price": 650,
+    "type": "Equipment",
+    "slot": "Armor",
+    "rarity": "EPIC",
+    "level_req": 10,
+    "attack": 0,
+    "defense": 25
+  },
+  "301": {
+    "name": "初级治疗药水",
+    "description": "能恢复少量生命值。",
+    "price": 20,
+    "type": "Consumable",
+    "stackable": true
+  },
+  "302": {
+    "name": "中级治疗药水",
+    "description": "能恢复中等程度的生命值。",
+    "price": 100,
+    "type": "Consumable",
+    "stackable": true
+  },
+  "303": {
+    "name": "高级治疗药水",
+    "description": "能恢复大量生命值，是战场上的救命良药。",
+    "price": 500,
+    "type": "Consumable",
+    "stackable": true
+  },
+  "304": {
+    "name": "魔法药水",
+    "description": "能恢复你的法力值。",
+    "price": 80,
+    "type": "Consumable",
+    "stackable": true
+  },
+  "401": {
+    "name": "铁矿石",
+    "description": "用于锻造武器和护甲的基础材料。",
+    "price": 10,
+    "type": "Material",
+    "stackable": true
+  },
+  "402": {
+    "name": "银矿石",
+    "description": "一种稀有的矿石，带有微弱的魔法光泽。",
+    "price": 60,
+    "type": "Material",
+    "stackable": true
+  }
+}
