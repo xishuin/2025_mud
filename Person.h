@@ -24,18 +24,24 @@ class Person{
         int GetY() { return Y; }
         //修改成员变量
         void ChangeIndex(int InIndex){ Index = InIndex; }
-        void ChangeXY(int InX, int IntY){
+        void ChangeXY(int InX, int InY){
             X = InX;
             Y = InY;
         }
         //重载运算符
         Person& operator+(int value) {
-            this->HP += value;
+            if (HP + value > MaxHP) {
+                this->HP = MaxHP;
+            }
+            else this->HP += value;
             return *this;
         }
 
         Person& operator-(int value) {
-            this->HP -= value;
+            if (HP - value < 0) {
+                this->HP = 0;
+            }
+            else this->HP -= value;
             return *this;
         }
 };
@@ -60,18 +66,21 @@ class Player: public Person{
             MP += InMP;
             return true;
         }
-        bool ChangeEXP(int InEXP){ // 涉及到超过限度后自动升级
+        bool ChangeEXP(int InEXP) { // 涉及到超过限度后自动升级
             if (EXP + InEXP < 0) return false;
             EXP += InEXP;
-            if (EXP > MaxEXP) {
-                UpLevel();
+            while (EXP > MaxEXP) {
                 EXP -= MaxEXP;
+                UpLevel();
             }
-        return true;
+            return true;
         }
         bool ChangeMoney(int InMoney) {
             if (Money + InMoney < 0) return false;
-            else return true;
+            else {
+                Money += InMoney;
+                return true;
+            }
         }
         //获取成员变量
         int GetMP(){return MP;}
