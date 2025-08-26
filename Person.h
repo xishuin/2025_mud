@@ -75,7 +75,7 @@ class Player: public Person{
         bool ChangeEXP(int InEXP) {
             if (EXP + InEXP < 0) return false;
             EXP += InEXP;
-            while (EXP > MaxEXP) {
+            while (EXP >= MaxEXP) {
                 EXP -= MaxEXP;
                 UpLevel();
             }
