@@ -18,7 +18,7 @@ protected:
 public:
     Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY) :HP(InHP), MaxHP(InMaxHP), Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY) {}
     Person() {
-        ifstream file("player.json");
+        ifstream file("bag/player.json");
         if (!file.is_open()) {
             cerr << "人物初始化错误，Person类错误" << endl;
         }
@@ -81,7 +81,7 @@ public:
     }
     void SaveToJson() {
         json data = GetData();
-        ifstream file("player.json");
+        ifstream file("bag/player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -91,7 +91,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("player.json");
+            ofstream out_file("bag/player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
@@ -139,7 +139,7 @@ public:
         data["level"] = Level;
         Person::SaveToJson();
 
-        ifstream file("player.json");
+        ifstream file("bag/player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -149,7 +149,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("player.json");
+            ofstream out_file("bag/player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
