@@ -36,13 +36,15 @@ int GetMaxMP() const { return MaxMP; }
 int GetEXP() const { return EXP; }
 int GetMaxEXP() const { return MaxEXP; }
 int GetLevel() const { return Level; }
+Skill& GetSkill(int InIndex); // 通过索引获取技能
 
 // int GetMoney() const { return Money; } // 有可能要取消
 //以下目前未实现
 // Package& GetPackage() { return PlayerPackage; }
 // Weapons& GetWeapons() { return PlayerWeapons; }
 // Armor& GetArmor() { return PlayerArmor; }
-// Skill& GetSkill() { return PlayerSkill; }
+
+
 ```
 
 ## 3. 修改成员变量
@@ -68,6 +70,7 @@ EXP会自动升级，并且如果一次性得到很多经验，可以自动连�
 Money小于0后会返回false，Money不会改变
 */
 ```
+
 
 
 
