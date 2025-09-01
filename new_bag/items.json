@@ -1,0 +1,44 @@
+{
+  "101": {
+    "name": "新手铁剑", "description": "一把普普通通的铁剑。", "price": 50, "type": "Equipment",
+    "slot": "Weapon", "rarity": "COMMON", "level_req": 1,
+    "attack": 5, "defense": 0
+  },
+  "201": {
+    "name": "破旧皮甲", "description": "勉强能提供一些防护。", "price": 40, "type": "Equipment",
+    "slot": "Chest", "rarity": "COMMON", "level_req": 1,
+    "attack": 0, "defense": 3
+  },
+  "202": {
+    "name": "锁子甲", "description": "由无数铁环编织而成，提供了优良的防护。", "price": 300, "type": "Equipment",
+    "slot": "Chest", "rarity": "RARE", "level_req": 5,
+    "attack": 0, "defense": 10
+  },
+  "501": {
+    "name": "皮制头盔", "description": "一个简单的皮头盔。", "price": 30, "type": "Equipment",
+    "slot": "Helmet", "rarity": "COMMON", "level_req": 1,
+    "attack": 0, "defense": 2
+  },
+  "601": {
+    "name": "旅行者皮靴", "description": "轻便耐用的靴子，适合长途跋涉。", "price": 35, "type": "Equipment",
+    "slot": "Shoes", "rarity": "COMMON", "level_req": 1,
+    "attack": 0, "defense": 1
+  },
+  "602": {
+    "name": "疾风之靴", "description": "传说中注入了风之精华的靴子。", "price": 450, "type": "Equipment",
+    "slot": "Shoes", "rarity": "RARE", "level_req": 6,
+    "attack": 0, "defense": 3
+  },
+  "301": {
+    "name": "初级治疗药水", "description": "能恢复少量生命值。", "price": 20, "type": "Consumable",
+    "stackable": true
+  },
+  "302": {
+    "name": "中级治疗药水", "description": "能恢复较多生命值。", "price": 30, "type": "Consumable",
+    "stackable": true
+  },
+  "401": {
+    "name": "铁矿石", "description": "用于锻造武器和护甲的基础材料。", "price": 10, "type": "Material",
+    "stackable": true
+  }
+}
