@@ -9,7 +9,7 @@ using namespace std;
 // 技能基类
 class Skill {
 protected:
-    int id                //技能的编号
+    int id;                //技能的编号
     string name;
     string description;
     int levelRequirement; // 学习所需的等级
