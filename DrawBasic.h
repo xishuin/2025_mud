@@ -56,4 +56,6 @@ void DrawGameImg();
 void GameStartInput();
 void StartPlots();
 void GamePrologue();
+
+//章�
 #endif

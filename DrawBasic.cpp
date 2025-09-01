@@ -9,6 +9,10 @@ HWND hConsoleWnd;
 bool running=false;
 Model_t ModelState=Model_t::MainModel;
 
+
+
+
+
 void InitConsole() {
     // 获取控制台句柄
     hConsoleOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -145,8 +149,3 @@ void ClearScreen() {
     SetConsoleCursorPosition(hConsoleOut, coord);
 }
 
-void StartPlots() {
-
-
-
-}
