@@ -114,7 +114,7 @@ private:
     EXP: 经验值
     */
     /*Skill PlayerSkill;*/
-    void UpLevel(); // 涉及到改蓝条、血条、技能
+    void UpLevel(){} // 涉及到改蓝条、血条、技能
 public:
     Player()  : Person(){
         ifstream file("player.json");
