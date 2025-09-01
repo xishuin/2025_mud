@@ -1,14 +1,9 @@
 {
-    "attack": 5,
-    "defend": 5,
     "equipped_chest": null,
     "equipped_helmet": null,
     "equipped_shoes": 601,
     "equipped_weapon": 101,
-    "exp": 20,
     "gold": 850,
-    "hp": 100,
-    "index": 0,
     "inventory": [
         {
             "id": 101,
@@ -32,11 +27,9 @@
         }
     ],
     "level": 5,
-    "max_exp": 30,
+    "name": "冒险者",
+    "hp": 100,
     "max_hp": 100,
-    "max_mp": 50,
-    "mp": 45,
-    "name": "",
-    "x": 3,
-    "y": 4
+    "mp": 50,
+    "max_mp": 50
 }

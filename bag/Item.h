@@ -1,4 +1,3 @@
-
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -6,7 +5,6 @@
 #include <string>
 #include <memory>
 
-// 物品类型
 enum class ItemType {
     GENERIC,
     EQUIPMENT,
@@ -74,13 +72,13 @@ public:
     int levelRequirement;
     int attackBonus;
     int defenseBonus;
-    int speedBonus; // 新增速度加成
+    // int speedBonus; // 已移除
     EquipmentSlot slot;
 
     Equipment(int id, std::string name, std::string description, int price,
-              Rarity rarity, int levelReq, int attack, int defense, int speed, EquipmentSlot slot)
+              Rarity rarity, int levelReq, int attack, int defense, /*int speed,*/ EquipmentSlot slot)
         : Item(id, std::move(name), std::move(description), price, false, ItemType::EQUIPMENT),
-          rarity(rarity), levelRequirement(levelReq), attackBonus(attack), defenseBonus(defense), speedBonus(speed), slot(slot) {}
+          rarity(rarity), levelRequirement(levelReq), attackBonus(attack), defenseBonus(defense), /*speedBonus(speed),*/ slot(slot) {}
 
     void display() const override {
         std::cout << "名称: " << name << " [" << rarityToString(rarity) << "]\n";
@@ -98,7 +96,7 @@ public:
 
         if (attackBonus > 0) std::cout << "攻击力: +" << attackBonus << "\n";
         if (defenseBonus > 0) std::cout << "防御力: +" << defenseBonus << "\n";
-        if (speedBonus > 0) std::cout << "速度: +" << speedBonus << "\n"; // 显示速度
+        // if (speedBonus > 0) std::cout << "速度: +" << speedBonus << "\n"; // 已移除
 
         std::cout << "等级要求: " << levelRequirement << "\n";
         std::cout << "描述: " << description << "\n";
@@ -134,6 +132,3 @@ public:
 
 
 #endif //ITEM_H
-//
-// Created by huaji on 25-8-25.
-//

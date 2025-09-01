@@ -7,7 +7,7 @@ Bag::Bag(std::string name, int level)
       gold(1000),
       baseAttack(1),
       baseDefense(0),
-      baseSpeed(5), // 设定一个基础速度值
+      // baseSpeed(5), // 已移除
       equippedWeapon(nullptr),
       equippedHelmet(nullptr),
       equippedChest(nullptr),
@@ -89,7 +89,7 @@ void Bag::showStatus() const {
     std::cout << "--- 属性 ---\n";
     std::cout << "攻击力: " << getTotalAttack() << " (" << baseAttack << " + " << getTotalAttack() - baseAttack << ")\n";
     std::cout << "防御力: " << getTotalDefense() << " (" << baseDefense << " + " << getTotalDefense() - baseDefense << ")\n";
-    std::cout << "速度:   " << getTotalSpeed() << " (" << baseSpeed << " + " << getTotalSpeed() - baseSpeed << ")\n"; // 显示速度
+    // std::cout << "速度:   " << getTotalSpeed() << " (" << baseSpeed << " + " << getTotalSpeed() - baseSpeed << ")\n"; // 已移除
     std::cout << "--- 装备 ---\n";
     std::cout << "武器: " << (equippedWeapon ? equippedWeapon->name : "无") << "\n";
     std::cout << "头盔: " << (equippedHelmet ? equippedHelmet->name : "无") << "\n";
@@ -107,7 +107,7 @@ void Bag::gainItem(std::unique_ptr<Item> item, int quantity) {
     inventory.addItem(std::move(item), quantity);
 }
 
-// 更新总属性计算，计入所有装备
+
 int Bag::getTotalAttack() const {
     int total = baseAttack;
     if (equippedWeapon) total += equippedWeapon->attackBonus;
@@ -126,14 +126,6 @@ int Bag::getTotalDefense() const {
     return total;
 }
 
-int Bag::getTotalSpeed() const {
-    int total = baseSpeed;
-    if (equippedWeapon) total += equippedWeapon->speedBonus;
-    if (equippedHelmet) total += equippedHelmet->speedBonus;
-    if (equippedChest) total += equippedChest->speedBonus;
-    if (equippedShoes) total += equippedShoes->speedBonus;
-    return total;
-}
 //这里是传状态的api
 CharacterStats Bag::getCharacterStats() const {
     CharacterStats stats;
@@ -143,20 +135,19 @@ CharacterStats Bag::getCharacterStats() const {
     stats.level = this->level;
     stats.gold = this->gold;
 
-    // 填充基础属性
     stats.baseAttack = this->baseAttack;
     stats.baseDefense = this->baseDefense;
-    stats.baseSpeed = this->baseSpeed;
+    // stats.baseSpeed = this->baseSpeed; // 已移除
 
     // 计算并填充总体属性
     stats.totalAttack = this->getTotalAttack();
     stats.totalDefense = this->getTotalDefense();
-    stats.totalSpeed = this->getTotalSpeed();
+    // stats.totalSpeed = this->getTotalSpeed(); // 已移除
 
     // 计算并填充加成属性
     stats.bonusAttack = stats.totalAttack - stats.baseAttack;
     stats.bonusDefense = stats.totalDefense - stats.baseDefense;
-    stats.bonusSpeed = stats.totalSpeed - stats.baseSpeed;
+    // stats.bonusSpeed = stats.totalSpeed - stats.baseSpeed; // 已移除
 
     // 填充装备名称
     stats.weaponName = this->equippedWeapon ? this->equippedWeapon->name : "无";

@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-// 这是使用 API 的例子
+//API例子
 void displayCharacterPanel(const Bag& playerBag) {
     CharacterStats stats = playerBag.getCharacterStats();
     std::cout << "\n\n--- ==== 角色面板 ==== ---\n";
@@ -12,8 +12,6 @@ void displayCharacterPanel(const Bag& playerBag) {
               << " (" << stats.baseAttack << " + " << stats.bonusAttack << ")\n";
     std::cout << "  防御: " << stats.totalDefense
               << " (" << stats.baseDefense << " + " << stats.bonusDefense << ")\n";
-    std::cout << "  速度: " << stats.totalSpeed
-              << " (" << stats.baseSpeed << " + " << stats.bonusSpeed << ")\n";
     std::cout << "-------------------------------------\n";
     std::cout << "  武器: " << stats.weaponName << "\n";
     std::cout << "  头盔: " << stats.helmetName << "\n";
@@ -28,12 +26,9 @@ int main() {
     system("cls");
 
     std::cout << "欢迎来到背包管理系统!\n";
-    #displayCharacterPanel();
+    // displayCharacterPanel(); //API示例，不调用
     Game game("冒险者");
     game.run();
 
     return 0;
 }
-//
-// Created by huaji on 25-8-25.
-//

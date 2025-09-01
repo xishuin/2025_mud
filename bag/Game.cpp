@@ -130,7 +130,7 @@ std::unique_ptr<Item> Game::createItemById(int id) {
         return std::make_unique<Equipment>(
             id, data["name"], data["description"], data["price"],
             stringToRarity(data["rarity"]), data["level_req"],
-            data["attack"], data["defense"], data["speed"], // 确保这里有9个参数 + id = 10个
+            data["attack"], data["defense"], // data["speed"] 已移除
             stringToSlot(data["slot"])
         );
     } else if (type == "Consumable") {

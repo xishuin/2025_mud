@@ -10,18 +10,16 @@ struct CharacterStats {
     int level;
     long long gold;
 
-    // 总体属性
     int totalAttack;
     int totalDefense;
-    int totalSpeed;
+    // int totalSpeed; // 已移除
 
-    // 分项属性 (用于显示 "基础 + 加成")
     int baseAttack;
     int bonusAttack;
     int baseDefense;
     int bonusDefense;
-    int baseSpeed;
-    int bonusSpeed;
+    // int baseSpeed; // 已移除
+    // int bonusSpeed; // 已移除
 
     // 装备名称
     std::string weaponName;
@@ -44,7 +42,7 @@ public:
 
     int getTotalAttack() const;
     int getTotalDefense() const;
-    int getTotalSpeed() const;
+    // int getTotalSpeed() const; // 已移除
 
     // --- 新增: 获取角色属性的 API 函数 ---
     CharacterStats getCharacterStats() const;
@@ -60,7 +58,7 @@ public:
 
     int baseAttack;
     int baseDefense;
-    int baseSpeed;
+    // int baseSpeed; // 已移除
 
     Inventory inventory;
 
