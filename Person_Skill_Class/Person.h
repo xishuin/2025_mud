@@ -30,6 +30,7 @@ public:
         Index = data["index"];
         X = data["x"];
         Y = data["y"];
+        Name = data["name"];
     }
     virtual ~Person() = default;
     //获取成员变量
