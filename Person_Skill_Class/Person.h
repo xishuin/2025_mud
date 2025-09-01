@@ -53,9 +53,9 @@ class Person{
 
 class Player: public Person{
     private:
-        Package PlayerPackage;
+        Bag PlayerBag;
         Weapons PlayerWeapons;
-        Armor PlayerArmor;
+        Chest PlayerArmor;
         int MP, MaxMP, EXP, MaxEXP, Level, Money;
         /*
         MP: 蓝条
