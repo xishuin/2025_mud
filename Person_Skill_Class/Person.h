@@ -2,8 +2,10 @@
 #define PERSON_H
 #include <string>
 #include <iomanip>
-# include <fstream>
-# include "json.hpp"
+#include <fstream>
+#include "json.hpp"
+#include "Skill.h"
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 
@@ -18,7 +20,7 @@ protected:
 public:
     Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY) :HP(InHP), MaxHP(InMaxHP), Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY) {}
     Person() {
-        ifstream file("bag/player.json");
+        ifstream file("player.json");
         if (!file.is_open()) {
             cerr << "人物初始化错误，Person类错误" << endl;
         }
@@ -82,7 +84,7 @@ public:
     }
     void SaveToJson() {
         json data = GetData();
-        ifstream file("bag/player.json");
+        ifstream file("player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -92,7 +94,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("bag/player.json");
+            ofstream out_file("player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
@@ -110,12 +112,43 @@ private:
     Weapons PlayerWeapons;
     Armor PlayerArmor;*/
     int MP, MaxMP, EXP, MaxEXP, Level/*, Money*/;
+    vector<Skill*> Skills;
     /*
     MP: 蓝条
     EXP: 经验值
     */
     /*Skill PlayerSkill;*/
-    void UpLevel(){} // 涉及到改蓝条、血条、技能
+    void UpLevel() {
+
+    } // 涉及到改蓝条、血条
+
+    void InitializeSkills() {
+        // 清除现有技能
+        for (Skill* skill : Skills) {
+            delete skill;
+        }
+        Skills.clear();
+
+        // 根据等级添加技能
+        if (Level >= 5) {
+            Skills.push_back(new FireArrow());
+        }
+        if (Level >= 10) {
+            Skills.push_back(new Heal());
+        }
+        if (Level >= 15) {
+            Skills.push_back(new StrengthBlessing());
+        }
+        if (Level >= 20) {
+            Skills.push_back(new FrostNova());
+        }
+        if (Level >= 25) {
+            Skills.push_back(new ThunderStrike());
+        }
+        if (Level >= 30) {
+            Skills.push_back(new NBStrike());
+        }
+    }
 public:
     Player()  : Person(){
         ifstream file("player.json");
@@ -130,6 +163,7 @@ public:
         EXP = data["exp"];
         MaxEXP = data["max_exp"];
         Level = data["level"];
+        InitializeSkills();
     }
     ~Player() {
         json data = Person::GetData();
@@ -140,7 +174,7 @@ public:
         data["level"] = Level;
         Person::SaveToJson();
 
-        ifstream file("bag/player.json");
+        ifstream file("player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -150,7 +184,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("bag/player.json");
+            ofstream out_file("player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
@@ -193,7 +227,7 @@ public:
     /*int GetMoney() const { return Money; }
     Package& GetPackage() { return PlayerPackage; }
     Weapons& GetWeapons() { return PlayerWeapons; }
-    Armor& GetArmor() { return PlayerArmor; }
-    Skill& GetSkill() { return PlayerSkill; }*/
+    Armor& GetArmor() { return PlayerArmor; }*/
+    Skill& GetSkills(int InIndex) { return *Skills[InIndex]; }
 };
 #endif //PERSON_H
