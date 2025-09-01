@@ -11,7 +11,11 @@ Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InI
 ### 主角：
 
 ```C++
-Player() //目前未定义
+Player()
+// 直接初始化主角
+/*
+结束后会自动保存，信息在player.json文件中，要求把player.json放在Person.h同一目录
+*/
 ```
 
 ## 2. 获取信息
@@ -32,11 +36,13 @@ int GetMaxMP() const { return MaxMP; }
 int GetEXP() const { return EXP; }
 int GetMaxEXP() const { return MaxEXP; }
 int GetLevel() const { return Level; }
-int GetMoney() const { return Money; }
-Package& GetPackage() { return PlayerPackage; }
-Weapons& GetWeapons() { return PlayerWeapons; }
-Armor& GetArmor() { return PlayerArmor; }
-Skill& GetSkill() { return PlayerSkill; }
+
+// int GetMoney() const { return Money; } // 有可能要取消
+//以下目前未实现
+// Package& GetPackage() { return PlayerPackage; }
+// Weapons& GetWeapons() { return PlayerWeapons; }
+// Armor& GetArmor() { return PlayerArmor; }
+// Skill& GetSkill() { return PlayerSkill; }
 ```
 
 ## 3. 修改成员变量
@@ -55,12 +61,13 @@ p -= 1
 //这里输入改变的值，可以输入负数表示减
 bool ChangeMP(int InMP);
 bool ChangeEXP(int InExp); 
-bool ChangeMoney(int InMoney);
+// bool ChangeMoney(int InMoney); // 有可能需要取消
 /*
 MP小于0会返回false，MP不会改变，MP达到上限后MP=MaxMP
 EXP会自动升级，并且如果一次性得到很多经验，可以自动连续升好几级，EXP小于0也会返回false，EXP可以减，也可以不减
 Money小于0后会返回false，Money不会改变
 */
 ```
+
 
 
