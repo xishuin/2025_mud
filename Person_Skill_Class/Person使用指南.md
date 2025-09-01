@@ -14,7 +14,7 @@ Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InI
 Player()
 // 直接初始化主角
 /*
-结束后会自动保存，信息在player.json文件中，要求把player.json放在Person.h同一目录
+结束后会自动保存，信息在bag/player.json文件中
 */
 ```
 
@@ -68,6 +68,7 @@ EXP会自动升级，并且如果一次性得到很多经验，可以自动连�
 Money小于0后会返回false，Money不会改变
 */
 ```
+
 
 
 
