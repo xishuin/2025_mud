@@ -5,6 +5,9 @@
 #include <string>
 #include <memory>
 
+// 前向声明Player类，避免循环包含
+class Player;
+
 enum class ItemType {
     GENERIC,
     EQUIPMENT,
@@ -36,12 +39,11 @@ inline std::string rarityToString(Rarity rarity) {
 enum class EquipmentSlot {
     NONE,
     WEAPON,
-    HELMET, // 新增
-    CHEST,  // 将 ARMOR 改为 CHEST，更清晰
-    SHOES   // 新增
+    HELMET,
+    CHEST,
+    SHOES
 };
 
-// ... (Item, Consumable, Material 类保持不变) ...
 class Item {
 public:
     int id;
@@ -72,7 +74,6 @@ public:
     int levelRequirement;
     int attackBonus;
     int defenseBonus;
-    // int speedBonus; // 已移除
     EquipmentSlot slot;
 
     Equipment(int id, std::string name, std::string description, int price,
@@ -96,7 +97,6 @@ public:
 
         if (attackBonus > 0) std::cout << "攻击力: +" << attackBonus << "\n";
         if (defenseBonus > 0) std::cout << "防御力: +" << defenseBonus << "\n";
-        // if (speedBonus > 0) std::cout << "速度: +" << speedBonus << "\n"; // 已移除
 
         std::cout << "等级要求: " << levelRequirement << "\n";
         std::cout << "描述: " << description << "\n";
@@ -115,6 +115,32 @@ public:
         std::cout << "描述: " << description << "\n";
         std::cout << "售价: " << price << " 金币\n";
     }
+    
+    virtual bool Use(Player* player) {
+        return false;
+    }
+};
+
+// 生命药水
+class HealthPotion : public Consumable {
+private:
+    int healAmount;
+public:
+    HealthPotion(int id, std::string name, std::string description, int price, int healAmount)
+        : Consumable(id, std::move(name), std::move(description), price), healAmount(healAmount) {}
+    
+    bool Use(Player* player) override;
+};
+
+// 魔法药水
+class ManaPotion : public Consumable {
+private:
+    int manaAmount;
+public:
+    ManaPotion(int id, std::string name, std::string description, int price, int manaAmount)
+        : Consumable(id, std::move(name), std::move(description), price), manaAmount(manaAmount) {}
+    
+    bool Use(Player* player) override;
 };
 
 class Material : public Item {
@@ -130,5 +156,6 @@ public:
     }
 };
 
+// 注意：HealthPotion和ManaPotion的Use方法实现被移至单独的Item.cpp文件，以避免头文件循环依赖
 
 #endif //ITEM_H

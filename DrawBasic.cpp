@@ -51,21 +51,21 @@ void DrawGameImg() {
     FillConsoleOutputCharacter(hConsoleOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, {0, 0}, &written);
     // 移动光标到指定位置并打印LOGO和菜单
     COORD startPosLogo = { static_cast<SHORT>(csbi.dwSize.X / 2 - 10), static_cast<SHORT>(csbi.dwSize.Y / 2 - 5)}; // 调整LOGO起始位置
-    SetConsoleCursorPosition(hConsoleOut, startPosLogo);
+    SetCursorPosition(hConsoleOut, startPosLogo.X, startPosLogo.Y);
     std::cout << "#####   ######  ##   ##  #####  #######";
-    SetConsoleCursorPosition(hConsoleOut, COORD{startPosLogo.X,static_cast<SHORT>(startPosLogo.Y+1)});
+    SetCursorPosition(hConsoleOut, startPosLogo.X, static_cast<SHORT>(startPosLogo.Y+1));
     std::cout << "##  ##  ##      ### ###  ##     ##    ";
-    SetConsoleCursorPosition(hConsoleOut, COORD{startPosLogo.X,static_cast<SHORT>( startPosLogo.Y + 2)});
+    SetCursorPosition(hConsoleOut, startPosLogo.X, static_cast<SHORT>(startPosLogo.Y + 2));
     std::cout << "#####   ######  ## # ##  #####  #######";
-    SetConsoleCursorPosition(hConsoleOut, COORD{startPosLogo.X,static_cast<SHORT>( startPosLogo.Y + 3)});
+    SetCursorPosition(hConsoleOut, startPosLogo.X, static_cast<SHORT>(startPosLogo.Y + 3));
     std::cout << "##  ##  ##      ##   ##     ##  ##    ";
-    SetConsoleCursorPosition(hConsoleOut, COORD{startPosLogo.X,static_cast<SHORT>( startPosLogo.Y + 4)});
+    SetCursorPosition(hConsoleOut, startPosLogo.X, static_cast<SHORT>(startPosLogo.Y + 4));
     std::cout << "#####   ######  ##   ##  #####  #######";
     // 打印游戏选项
     COORD startPosMenu = {static_cast<SHORT>(csbi.dwSize.X / 2 - 8), static_cast<SHORT>(csbi.dwSize.Y / 2 + 2)}; // 调整菜单起始位置
-    SetConsoleCursorPosition(hConsoleOut, startPosMenu);
+    SetCursorPosition(hConsoleOut, startPosMenu.X, startPosMenu.Y);
     std::cout << "1: StartGame";
-    SetConsoleCursorPosition(hConsoleOut, COORD{ startPosMenu.X,static_cast<SHORT>(startPosMenu.Y + 1)});
+    SetCursorPosition(hConsoleOut, startPosMenu.X, static_cast<SHORT>(startPosMenu.Y + 1));
     std::cout << "2: Quit Game";
     GameStartInput();
 }
@@ -146,6 +146,5 @@ void ClearScreen() {
     DWORD count;
     FillConsoleOutputCharacter(hConsoleOut, ' ', 120*40, coord, &count);
     FillConsoleOutputAttribute(hConsoleOut, 0x07, 120*40, coord, &count);
-    SetConsoleCursorPosition(hConsoleOut, coord);
+    SetCursorPosition(hConsoleOut, coord.X, coord.Y);
 }
-

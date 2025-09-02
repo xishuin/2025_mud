@@ -1,5 +1,8 @@
 #include "StorySystem.h"
 #include <iostream>
+#include "Person_Skill_Class/Person.h"
+#include "Map.h"
+#include "map/map.h"
 
 // 定义全局剧情系统
 StorySystem g_storySystem;
@@ -116,6 +119,11 @@ void InitStorySystem() {
     g_storySystem.addNode(node20);
     g_storySystem.addNode(node21);
     std::cout << "剧情系统初始化完成！" << std::endl;
+}
+
+// 处理剧情选择事件
+void handleChoiceEvent(int nodeId, int choiceId) {
+
 }
 
 // 在main函数中调用此函数来初始化剧情系统

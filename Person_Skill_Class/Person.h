@@ -3,12 +3,15 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
-#include "json.hpp"
-#include "Skill.h"
+#include "../json_wrapper.hpp"
 #include <vector>
-#include "bag.h"
+// 包含Bag类的完整定义
+#include "d:\\code_practise\\project\\Home_worke\\new_bag\\bag.h"
 using namespace std;
 using json = nlohmann::json;
+
+// 前向声明Skill类，避免循环包含
+class Skill;
 
 class Person {
 protected:
@@ -21,7 +24,7 @@ protected:
 public:
     Person(int InHP, int InMaxHP, int InAttack, int InDefend, string InName, int InIndex, int InX, int InY) :HP(InHP), MaxHP(InMaxHP), Attack(InAttack), Defend(InDefend), Name(InName), Index(InIndex), X(InX), Y(InY) {}
     Person() {
-        ifstream file("../new_bag/player.json");
+        ifstream file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
         if (!file.is_open()) {
             cerr << "人物初始化失败" << endl;
         }
@@ -85,7 +88,7 @@ public:
     }
     void SaveToJson() {
         json data = GetData();
-        ifstream file("../new_bag/player.json");
+        ifstream file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -95,7 +98,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("../new_bag/player.json");
+            ofstream out_file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
@@ -121,36 +124,10 @@ private:
 
     } // 涉及到改蓝条、血条
 
-    void InitializeSkills() {
-        // 清除现有技能
-        for (Skill* skill : Skills) {
-            delete skill;
-        }
-        Skills.clear();
-
-        // 根据等级添加技能
-        if (Level >= 5) {
-            Skills.push_back(new FireArrow());
-        }
-        if (Level >= 10) {
-            Skills.push_back(new Heal());
-        }
-        if (Level >= 15) {
-            Skills.push_back(new StrengthBlessing());
-        }
-        if (Level >= 20) {
-            Skills.push_back(new FrostNova());
-        }
-        if (Level >= 25) {
-            Skills.push_back(new ThunderStrike());
-        }
-        if (Level >= 30) {
-            Skills.push_back(new NBStrike());
-        }
-    }
+    void InitializeSkills();
 public:
     Player()  : Person(), PlayerBag(){
-        ifstream file("../player.json");
+        ifstream file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
         if (!file.is_open()) {
             cerr << "1" << endl;
             //return 1;
@@ -173,7 +150,7 @@ public:
         data["level"] = Level;
         Person::SaveToJson();
 
-        ifstream file("../new_bag/player.json");
+        ifstream file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
         if (!file.is_open()) {
             cerr<<"无法保存人物到数据中"<<endl;
         }
@@ -183,7 +160,7 @@ public:
                 existing_data[it.key()] = it.value();
             }
             file.close();
-            ofstream out_file("../new_bag/player.json");
+            ofstream out_file("D:\\code_practise\\project\\Home_worke\\static\\player.json");
             if (!out_file.is_open()) {
                 cerr << "无法保存人物到数据中"<<endl;
             }
@@ -218,13 +195,22 @@ public:
     //     }
     // }
     //获取成员变量
+    int GetLevel() const { return Level; }
     int GetMP() const { return MP; }
     int GetMaxMP() const { return MaxMP; }
     int GetEXP() const { return EXP; }
     int GetMaxEXP() const { return MaxEXP; }
-    int GetLevel() const { return Level; }
+    const std::vector<Skill*>& GetSkills() const { return Skills; }
+    void SetMP(int mp) { MP = mp; }
+    void SetAttack(int attack) { Attack = attack; }
     // int GetMoney() const { return Money; }
     Bag& GetBag() { return PlayerBag; }
     Skill& GetSkills(int InIndex) { return *Skills[InIndex]; }
 };
+// 在类定义之后包含必要的头文件以获取完整定义
+#include "bag.h"
+#include "Skill.h"
+
+// InitializeSkills方法的实现将在Person.cpp中提供
+
 #endif //PERSON_H

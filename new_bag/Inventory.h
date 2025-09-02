@@ -20,7 +20,6 @@ public:
 
     // 通过索引移除物品
     void removeItem(int list_index, int quantity = 1);
-
     // 显示背包内容
     void display() const;
 

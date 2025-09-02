@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "json.hpp"
+#include "json_wrapper.hpp"
 
 using json = nlohmann::json;
 using namespace std;
