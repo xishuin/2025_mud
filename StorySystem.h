@@ -1,6 +1,7 @@
 #ifndef STORYSYSTEM_H
 #define STORYSYSTEM_H
 #include <string>
+#include <utility>
 #include <vector>
 #include <memory>
 #include <functional>
@@ -8,11 +9,19 @@
 // 提前声明Player类
 class Player;
 // 剧情节点类
+struct Choice {
+
+    std::string text;
+    int nextNode;
+    std::function<void(const Player&)> choice_handel;
+    Choice(std::string _t,int _n):text(std::move(_t)),nextNode(_n),choice_handel(nullptr){}
+};
+
 class StoryNode {
 private:
     int id;
     std::string text;
-    std::vector<std::pair<std::string, int>> choices; // 选项文本和下一个节点ID
+    std::vector<Choice*> choices; // 选项文本和下一个节点ID
     std::function<bool(const Person&)> condition; // 触发条件
     bool isTerminal; // 是否为结束节点
 
@@ -22,9 +31,11 @@ public:
 
     // 添加选项
     void addChoice(const std::string& choiceText, int nextNodeId) {
-        choices.push_back({choiceText, nextNodeId});
+        choices.push_back(new Choice(choiceText,nextNodeId));
     }
-
+    void SetHandleChoiceEvent(int choice,std::function<void(const Person&)> Handel) {
+            choices[choice]->choice_handel=Handel;
+    }
     // 设置触发条件
     void setCondition(std::function<bool(const Person&)> cond) {
         condition = cond;
@@ -37,7 +48,7 @@ public:
     std::string getText() const { return text; }
 
     // 获取选项列表
-    const std::vector<std::pair<std::string, int>>& getChoices() const {
+    const std::vector<Choice*>& getChoices() const {
         return choices;
     }
 
@@ -79,7 +90,7 @@ public:
 
         const auto& currentNode = getCurrentNode();
         if (optionIndex >= 0 && optionIndex < currentNode.getChoices().size()) {
-            currentNodeId = currentNode.getChoices()[optionIndex].second;
+            currentNodeId = currentNode.getChoices()[optionIndex]->nextNode;
             selectedChoice = optionIndex;
         }
     }
@@ -127,6 +138,7 @@ public:
         }
         return false;
     }
+
 };
 
 #endif // STORYSYSTEM_H

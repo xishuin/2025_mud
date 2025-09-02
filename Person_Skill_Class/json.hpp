@@ -19618,7 +19618,7 @@ class serializer
     @copyright Copyright (c) 2008-2009 Bjoern Hoehrmann <bjoern@hoehrmann.de>
     @sa http://bjoern.hoehrmann.de/utf-8/decoder/dfa/
     */
-    static std::uint8_t decode(std::uint8_t& state, std::uint32_t& codep, const std::uint8_t byte) noexcept
+    static std::uint8_t decode(std::uint8_t& state, std::uint32_t& codep, const std::uint8_t b) noexcept
     {
         static const std::array<std::uint8_t, 400> utf8d =
         {
@@ -19640,12 +19640,12 @@ class serializer
             }
         };
 
-        JSON_ASSERT(byte < utf8d.size());
-        const std::uint8_t type = utf8d[byte];
+        JSON_ASSERT(b < utf8d.size());
+        const std::uint8_t type = utf8d[b];
 
         codep = (state != UTF8_ACCEPT)
-                ? (byte & 0x3fu) | (codep << 6u)
-                : (0xFFu >> type) & (byte);
+                ? (b & 0x3fu) | (codep << 6u)
+                : (0xFFu >> type) & (b);
 
         const std::size_t index = 256u + (static_cast<size_t>(state) * 16u) + static_cast<size_t>(type);
         JSON_ASSERT(index < utf8d.size());

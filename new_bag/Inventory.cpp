@@ -46,7 +46,7 @@ InventorySlot* Inventory::getSlotByIndex(int list_index) {
 }
 
 void Inventory::display() const {
-    std::cout << "\n--- 背包 ---\n";
+    std::cout << "\n-------- 背包 ---------\n";
     if (slots.empty()) {
         std::cout << "你的背包是空的。\n";
         return;
@@ -83,8 +83,8 @@ void Inventory::display() const {
             std::cout << " " << display_counter++ << ". " << pair.second->item->name << " (数量: " << pair.second->quantity << ")\n";
         }
     }
-    std::cout << "----------\n";
+    std::cout << "---------------------------\n";
 }
 //
-// Created by huaji on 25-8-25.
+
 //

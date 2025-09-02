@@ -1,17 +1,18 @@
 #include "Bag.h"
 #include <iostream>
+#include <memory>
+#include "Item.h"
 
 Bag::Bag()
     : gold(1000),
       equippedWeapon(nullptr),
       equippedHelmet(nullptr),
       equippedChest(nullptr),
-      inventory(),
-      equippedShoes(nullptr){
-}
+      inventory(new Inventory()),
+      equippedShoes(nullptr){}
 
 void Bag::equipItem(int inventory_list_index) {
-    InventorySlot* slot = inventory.getSlotByIndex(inventory_list_index);
+    InventorySlot* slot = inventory->getSlotByIndex(inventory_list_index);
     if (!slot) {
         std::cout << "无效的物品编号。\n";
         return;
@@ -49,8 +50,12 @@ void Bag::equipItem(int inventory_list_index) {
     std::cout << "你装备了 " << equipment_to_equip->name << "。\n";
 }
 
+Bag::~Bag() {
+    delete inventory;
+}
+
 void Bag::sellItem(int inventory_list_index, int quantity) {
-    InventorySlot* slot = inventory.getSlotByIndex(inventory_list_index);
+    InventorySlot* slot = inventory->getSlotByIndex(inventory_list_index);
     if (!slot) {
         std::cout << "无效的物品编号。\n";
         return;
@@ -69,36 +74,42 @@ void Bag::sellItem(int inventory_list_index, int quantity) {
     std::cout << "你出售了 " << sell_quantity << " 个 " << slot->item->name << "，获得了 " << total_price << " 金币。\n";
 
     this->gold += total_price;
-    inventory.removeItem(inventory_list_index, sell_quantity);
+    inventory->removeItem(inventory_list_index, sell_quantity);
 }
 
 
 
 void Bag::showInventory() const {
-    inventory.display();
+    inventory->display();
 }
 
-void Bag::gainItem(std::unique_ptr<Item> item, int quantity) {
+void Bag::gainItem(std::unique_ptr<Item> item, int quantity) // 默认参数在声明中已指定
+{
+    if (!item)
+    {
+        std::cout << "无法添加无效物品。\n";
+        return;
+    }
     std::cout << "你获得了 " << quantity << " 个 " << item->name << "。\n";
-    inventory.addItem(std::move(item), quantity);
+    inventory->addItem(std::move(item), quantity);
 }
 
 
 int Bag::getTotalAttack() const {
     int total = 0;
-    if (equippedWeapon) total += equippedWeapon->attackBonus;
-    if (equippedHelmet) total += equippedHelmet->attackBonus;
-    if (equippedChest) total += equippedChest->attackBonus;
-    if (equippedShoes) total += equippedShoes->attackBonus;
+    if (this->equippedWeapon) total += this->equippedWeapon->attackBonus;
+    if (this->equippedHelmet) total += this->equippedHelmet->attackBonus;
+    if (this->equippedChest) total += this->equippedChest->attackBonus;
+    if (this->equippedShoes) total += this->equippedShoes->attackBonus;
     return total;
 }
 
 int Bag::getTotalDefense() const {
     int total = 0;
-    if (equippedWeapon) total += equippedWeapon->defenseBonus;
-    if (equippedHelmet) total += equippedHelmet->defenseBonus;
-    if (equippedChest) total += equippedChest->defenseBonus;
-    if (equippedShoes) total += equippedShoes->defenseBonus;
+    if (this->equippedWeapon) total += this->equippedWeapon->defenseBonus;
+    if (this->equippedHelmet) total += this->equippedHelmet->defenseBonus;
+    if (this->equippedChest) total += this->equippedChest->defenseBonus;
+    if (this->equippedShoes) total += this->equippedShoes->defenseBonus;
     return total;
 }
 

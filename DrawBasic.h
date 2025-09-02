@@ -42,7 +42,6 @@ extern HANDLE hConsoleIn;
 extern HWND hConsoleWnd;
 extern bool running;
 extern Model_t ModelState;
-extern Player player;
 // 初始化控制台和绘制静态元素
 void InitConsole();
 // 隐藏光标
@@ -57,5 +56,4 @@ void GameStartInput();
 void StartPlots();
 void GamePrologue();
 
-//章�
 #endif

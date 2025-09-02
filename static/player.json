@@ -1,0 +1,42 @@
+{
+    "attack": 5,
+    "defend": 5,
+    "equipped_chest": null,
+    "equipped_helmet": null,
+    "equipped_shoes": 601,
+    "equipped_weapon": 101,
+    "exp": 20,
+    "gold": 850,
+    "hp": 100,
+    "index": 0,
+    "inventory": [
+        {
+            "id": 101,
+            "quantity": 1
+        },
+        {
+            "id": 601,
+            "quantity": 1
+        },
+        {
+            "id": 602,
+            "quantity": 1
+        },
+        {
+            "id": 301,
+            "quantity": 8
+        },
+        {
+            "id": 401,
+            "quantity": 20
+        }
+    ],
+    "level": 5,
+    "max_exp": 30,
+    "max_hp": 100,
+    "max_mp": 50,
+    "mp": 45,
+    "name": "罗汀·奥德瑞恩",
+    "x": 13,
+    "y": 15
+}

@@ -4,6 +4,11 @@
 #include "DrawBasic.h"
 #include "StorySystem.h"
 
+// 前向声明Player类
+class Player;
+// 声明外部全局变量player
+extern Player player;
+
 // 声明全局剧情系统
 extern StorySystem g_storySystem;
 
@@ -74,7 +79,30 @@ void MainGame() {
     MainKeyInput();
 }
 
+void DrawBagUI() {
+    ClearScreen();
+    std::cout << "================================" << std::endl;
+    std::cout << "           背包系统              " << std::endl;
+    std::cout << "================================" << std::endl;
 
+    // 显示角色状态
+    std::cout << "角色: " << player.GetName() << std::endl;
+    std::cout << "等级: " << player.GetLevel() << std::endl;
+    std::cout << "金币: " << player.GetBag().getGold() << std::endl;
+    std::cout << "\n装备状态: " << std::endl;
+    std::cout << "总攻击力: " << player.GetBag().getTotalAttack() + player.GetAttack() << std::endl;
+    std::cout << "总防御力: " << player.GetBag().getTotalDefense() + player.GetDefend() << std::endl;
+
+    // 显示物品栏
+    std::cout << "\n物品栏: " << std::endl;
+    player.GetBag().getInventory()->display();
+
+    std::cout << "\n使用说明: " << std::endl;
+    std::cout << "按任意键返回主菜单" << std::endl;
+
+    _getch(); // 等待用户按键
+    ModelState=Model_t::MainModel;
+}
 void DrawPlots() {
     // 检查剧情是否活跃
     if (g_storySystem.isActive()) {
@@ -89,7 +117,7 @@ void DrawPlots() {
             std::cout << "请选择：" << std::endl;
             for (size_t i = 0; i < choices.size(); ++i) {
                 SetCursorPosition(hConsoleOut, 4, 13 + i);
-                std::cout << i + 1 << ". " << choices[i].first << std::endl;
+                std::cout << i + 1 << ". " << choices[i]->text << std::endl;
             }
             // 处理选项输入
             if (int ch = _getch() - '0') {
