@@ -6,15 +6,22 @@
 #include <memory>
 #include <functional>
 #include "Person_Skill_Class/Person.h"
+#include "Task.h"
 // 提前声明Player类
 class Player;
 // 剧情节点类
 struct Choice {
-
     std::string text;
     int nextNode;
-    std::function<void(const Player&)> choice_handel;
-    Choice(std::string _t,int _n):text(std::move(_t)),nextNode(_n),choice_handel(nullptr){}
+    Task choice_handel;
+    Condition Selection_Detection_Handler;
+    Choice(std::string _t,int _n):text(std::move(_t)),nextNode(_n),choice_handel([]()->void{return;}),Selection_Detection_Handler([]()->bool{return true;}){}
+    void Set_Selection_Detection_Handler(Condition _cond) {
+            Selection_Detection_Handler=_cond;
+    }
+    void Set_choice_handel(Task _t) {
+        choice_handel=_t;
+    }
 };
 
 class StoryNode {
@@ -22,7 +29,7 @@ private:
     int id;
     std::string text;
     std::vector<Choice*> choices; // 选项文本和下一个节点ID
-    std::function<bool(const Person&)> condition; // 触发条件
+    Condition condition; // 触发条件
     bool isTerminal; // 是否为结束节点
 
 public:
@@ -33,11 +40,11 @@ public:
     void addChoice(const std::string& choiceText, int nextNodeId) {
         choices.push_back(new Choice(choiceText,nextNodeId));
     }
-    void SetHandleChoiceEvent(int choice,std::function<void(const Person&)> Handel) {
-            choices[choice]->choice_handel=Handel;
+    Choice* GetChoice(int id) {
+        return choices[id-1];
     }
     // 设置触发条件
-    void setCondition(std::function<bool(const Person&)> cond) {
+    void setCondition(Condition cond) {
         condition = cond;
     }
 
@@ -53,8 +60,8 @@ public:
     }
 
     // 检查是否满足触发条件
-    bool checkCondition(const Person& player) const {
-        return condition ? condition(player) : true;
+    bool checkCondition() const {
+        return condition ? condition() : true;
     }
 
     // 是否为结束节点
@@ -94,7 +101,6 @@ public:
             selectedChoice = optionIndex;
         }
     }
-
     // 获取当前节点
     const StoryNode& getCurrentNode() const {
         for (const auto& node : nodes) {
@@ -105,40 +111,14 @@ public:
         // 如果找不到节点，返回第一个节点
         return nodes.empty() ? StoryNode(-1, "") : nodes[0];
     }
-
     // 剧情是否活跃
     bool isActive() const { return storyActive; }
-
     // 结束剧情
     void endStory() {
         storyActive = false;
     }
-
     // 获取当前选择
     int getSelectedChoice() const { return selectedChoice; }
-
-    // 触发地图剧情检查
-    bool checkMapTrigger(int x, int y, const Player& player) {
-        // 这里可以根据坐标和玩家状态检查是否触发剧情
-        // 示例：当玩家到达(10,10)且等级大于5时触发剧情节点1
-        if (x == 10 && y == 10 && player.GetLevel() > 5) {
-            startStory(1);
-            return true;
-        }
-        return false;
-    }
-
-    // 触发人物剧情检查
-    bool checkNPCTrigger(int npcId, const Person& player) {
-        // 这里可以根据NPC ID和玩家状态检查是否触发剧情
-        // 示例：当与NPC 1对话且拥有特定物品时触发剧情节点2
-        if (npcId == 1 /* && 玩家拥有特定物品 */) {
-            startStory(2);
-            return true;
-        }
-        return false;
-    }
-
 };
 
 #endif // STORYSYSTEM_H
