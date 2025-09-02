@@ -1,0 +1,28 @@
+{
+"chapters":[
+{
+  "id": 1,
+  "name": "Chapter 1",
+  "description": "Chapter description 1",
+  "width": 10,
+  "height": 10,
+  "events": [1,2]
+},
+{
+  "id": 2,
+  "name": "Chapter 2",
+  "description": "Chapter description 2",
+  "width": 10,
+  "height": 10,
+  "events": [3,4]
+},
+{
+  "id": 3,
+  "name": "Chapter 3",
+  "description": "Chapter description 3",
+  "width": 10,
+  "height": 10,
+  "events": [5,6]
+}
+]
+}
