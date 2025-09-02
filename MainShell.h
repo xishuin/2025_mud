@@ -139,28 +139,7 @@ void DrawPlots() {
             }
         }
     } else {
-        // 剧情未激活，检查地图触发条件
-        static int debugCounter = 0;
-        if (debugCounter % 100 == 0) {
-            // 每100帧输出一次调试信息
-            SetCursorPosition(hConsoleOut, 2, 10);
-            std::cout << "玩家位置: (" << player.GetX() << ", " << player.GetY() << ")" << std::endl;
-            std::cout << "等级: " << player.GetLevel() << std::endl;
-        }
-        debugCounter++;
-        // 检查是否按下P键手动触发剧情
-        if (_kbhit()) {
-            int ch = _getch();
-            if (ch == 'p' || ch == 'P') {
-                g_storySystem.startStory(0);
-            }
-        }
-        // 检查地图触发条件
-        if (g_storySystem.checkMapTrigger(player.GetX(), player.GetY(), player)) {
-            // 剧情已触发
-            SetCursorPosition(hConsoleOut, 2, 15);
-            std::cout << "触发剧情!" << std::endl;
-        }
+
     }
 }
 
