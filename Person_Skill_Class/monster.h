@@ -10,9 +10,9 @@ using json = nlohmann::json;
 using namespace std;
 
 // 从JSON解析怪物
-vector<Monster> loadMonstersFromJson() {
+vector<Person> loadMonstersFromJson() {
     const string filename = "monsters.json";
-    vector<Monster> monsters;
+    vector<Person> monsters;
     try {
         // 读取JSON文件
         ifstream file(filename);
@@ -28,11 +28,7 @@ vector<Monster> loadMonstersFromJson() {
         // 检查是否有"monsters"键
         if (jsonData.contains("monsters") && jsonData["monsters"].is_array()) {
             for (const auto& monsterJson : jsonData["monsters"]) {
-                Monster monster;
-                monster.name = monsterJson.value("name", "");
-                monster.damage = monsterJson.value("damage", "");
-                monster.hp = monsterJson.value("hp", 0);
-                
+                Person monster(monsterJson.value("hp", 0), monsterJson.value("hp", 0), monsterJson.value("damage", 0), 0,monsterJson.value("name", "") , 0, 0, 0);
                 monsters.push_back(monster);
             }
         }
@@ -66,4 +62,3 @@ void saveMonstersToJson(const vector<Person>& monsters) {
         cerr << "无法创建文件: " << filename << endl;
     }
 }
-
