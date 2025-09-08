@@ -2,22 +2,17 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "json.hpp"
+#include "json_wrapper.hpp"
+#include "../Role/Person_Skill_Class/json.hpp"
+#include "../Role/Person_Skill_Class/Person.h"
 
 using json = nlohmann::json;
 using namespace std;
 
-// 定义怪物结构体
-struct Monster {
-    string name;
-    int damage;
-    int hp;
-};
-
 // 从JSON解析怪物
-vector<Monster> loadMonstersFromJson(const string& filename) {
+vector<Monster> loadMonstersFromJson() {
+    const string filename = "../Role/Person_Skill_Class/monsters.json";
     vector<Monster> monsters;
-    
     try {
         // 读取JSON文件
         ifstream file(filename);
@@ -35,14 +30,13 @@ vector<Monster> loadMonstersFromJson(const string& filename) {
             for (const auto& monsterJson : jsonData["monsters"]) {
                 Monster monster;
                 monster.name = monsterJson.value("name", "");
-                monster.damage = monsterJson.value("damage", 0);
+                monster.damage = monsterJson.value("damage", "");
                 monster.hp = monsterJson.value("hp", 0);
                 
                 monsters.push_back(monster);
             }
         }
-    }
-    catch (const exception& e) {
+    } catch (const exception& e) {
         cerr << "解析JSON时出错: " << e.what() << endl;
     }
     
@@ -50,15 +44,17 @@ vector<Monster> loadMonstersFromJson(const string& filename) {
 }
 
 // 将怪物保存回JSON文件
-void saveMonstersToJson(const vector<Monster>& monsters, const string& filename) {
+void saveMonstersToJson(const vector<Person>& monsters) {
+    const string filename = "../Role/Person_Skill_Class/monsters.json";
     json jsonData;
     jsonData["monsters"] = json::array();
-    
+
     for (const auto& monster : monsters) {
         json monsterJson;
-        monsterJson["name"] = monster.name;
-        monsterJson["damage"] = monster.damage;
-        monsterJson["hp"] = monster.hp;
+        monsterJson["name"] = monster.GetName();
+        monsterJson["damage"] = monster.GetAttack();
+        monsterJson["hp"] = monster.GetHP();
+        
         jsonData["monsters"].push_back(monsterJson);
     }
     
@@ -66,9 +62,7 @@ void saveMonstersToJson(const vector<Monster>& monsters, const string& filename)
     if (file.is_open()) {
         file << jsonData.dump(4); // 使用4空格缩进美化输出
         cout << "怪物数据已保存到: " << filename << endl;
-    }
-    else {
+    } else {
         cerr << "无法创建文件: " << filename << endl;
     }
-}
 }
