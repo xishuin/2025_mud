@@ -121,7 +121,23 @@ private:
     */
     /*Skill PlayerSkill;*/
     void UpLevel() {
-
+        if (Level == 1) {
+            Level++;
+            MaxHP = 102;
+            HP = MaxHP;
+            MaxMP = 120;
+            MP = MaxMP;
+            MaxEXP = 20;
+            return;
+        }
+        MaxHP = MaxHP*(Level-1) + (Level-1)*2;
+        HP = MaxHP;
+        Attack = Attack*(Level-1) + (Level-1);
+        Defend = Defend*(Level-1) + floor((Level-1)/2);
+        MaxMP += 20;
+        MP = MaxMP;
+        MaxEXP = 10*(Level+1)*(Level-1);
+        Level++;
     } // 涉及到改蓝条、血条
 
     void InitializeSkills();
@@ -214,3 +230,4 @@ public:
 // InitializeSkills方法的实现将在Person.cpp中提供
 
 #endif //PERSON_H
+
