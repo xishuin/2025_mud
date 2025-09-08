@@ -1,7 +1,7 @@
 
 #include "Map.h"
 #include "Person_Skill_Class/Person.h"
-#include "D:\code_practise\project\Home_worke\map\map.h"
+#include "map/map.h"
 #include <string>
 #include <iostream>
 
@@ -13,7 +13,9 @@ bool playerMoved=false;
 int MapWidth;
 int MapHeight;
 int offset=1;
+bool chapter_is_changer=false;
 // 初始化Map包的系统
+
 void InitMapSystem() {
     // 加载事件和地图数据
     std::string eventPath = "d:\\code_practise\\project\\Home_worke\\map\\event.json";
@@ -288,10 +290,7 @@ void EventDetection() {
 
 // 主地图函数
 void Map() {
-    
-    // 绘制地图
     DrawStaticMap();
-    
     maprunning = true;
     while (maprunning) {
         HideCursor();

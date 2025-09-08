@@ -11,7 +11,6 @@ extern bool maprunning;
 extern COORD playerPos;
 extern COORD prevPlayerPos;
 extern bool playerMoved;
-
 extern MapManager g_mapManager;
 extern EventManager g_eventManager;
 
