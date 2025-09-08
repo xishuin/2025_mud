@@ -3,15 +3,15 @@
 #include <vector>
 #include <string>
 #include "json_wrapper.hpp"
-#include "../Role/Person_Skill_Class/json.hpp"
-#include "../Role/Person_Skill_Class/Person.h"
+#include "json.hpp"
+#include "Person.h"
 
 using json = nlohmann::json;
 using namespace std;
 
 // 从JSON解析怪物
 vector<Monster> loadMonstersFromJson() {
-    const string filename = "../Role/Person_Skill_Class/monsters.json";
+    const string filename = "monsters.json";
     vector<Monster> monsters;
     try {
         // 读取JSON文件
@@ -45,7 +45,7 @@ vector<Monster> loadMonstersFromJson() {
 
 // 将怪物保存回JSON文件
 void saveMonstersToJson(const vector<Person>& monsters) {
-    const string filename = "../Role/Person_Skill_Class/monsters.json";
+    const string filename = "monsters.json";
     json jsonData;
     jsonData["monsters"] = json::array();
 
@@ -66,3 +66,4 @@ void saveMonstersToJson(const vector<Person>& monsters) {
         cerr << "无法创建文件: " << filename << endl;
     }
 }
+
