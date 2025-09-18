@@ -1,0 +1,134 @@
+{
+  "1": {
+    "name": "木剑", "description": "新手使用的木剑，攻击力较低。", "price": 10, "type": "Equipment",
+    "slot": "Weapon", "rarity": "COMMON", "level_req": 1,
+    "attack": 3, "defense": 0
+  },
+  "2": {
+    "name": "皮甲", "description": "简单的皮革护甲。", "price": 15, "type": "Equipment",
+    "slot": "Chest", "rarity": "COMMON", "level_req": 1,
+    "attack": 0, "defense": 2
+  },
+  "3": {
+    "name": "铁剑", "description": "比木剑锋利的铁剑。", "price": 50, "type": "Equipment",
+    "slot": "Weapon", "rarity": "UNCOMMON", "level_req": 2,
+    "attack": 7, "defense": 0
+  },
+  "4": {
+    "name": "铁盾", "description": "提供额外防护的铁盾。", "price": 40, "type": "Equipment",
+    "slot": "Shield", "rarity": "UNCOMMON", "level_req": 2,
+    "attack": 0, "defense": 4
+  },
+  "5": {
+    "name": "青铜剑", "description": "青铜打造的剑，比铁剑更坚韧。", "price": 100, "type": "Equipment",
+    "slot": "Weapon", "rarity": "RARE", "level_req": 3,
+    "attack": 12, "defense": 0
+  },
+  "6": {
+    "name": "青铜护甲", "description": "青铜打造的护甲，防护性能更好。", "price": 80, "type": "Equipment",
+    "slot": "Chest", "rarity": "RARE", "level_req": 3,
+    "attack": 0, "defense": 6
+  },
+  "7": {
+    "name": "白银剑", "description": "白银打造的剑，锋利无比。", "price": 200, "type": "Equipment",
+    "slot": "Weapon", "rarity": "EPIC", "level_req": 4,
+    "attack": 18, "defense": 0
+  },
+  "8": {
+    "name": "白银头盔", "description": "白银打造的头盔，保护头部免受伤害。", "price": 150, "type": "Equipment",
+    "slot": "Helmet", "rarity": "EPIC", "level_req": 4,
+    "attack": 0, "defense": 8
+  },
+  "9": {
+    "name": "秘银剑", "description": "用秘银打造的高级剑。", "price": 350, "type": "Equipment",
+    "slot": "Weapon", "rarity": "LEGENDARY", "level_req": 5,
+    "attack": 25, "defense": 0
+  },
+  "10": {
+    "name": "秘银护甲", "description": "用秘银打造的高级护甲。", "price": 300, "type": "Equipment",
+    "slot": "Chest", "rarity": "LEGENDARY", "level_req": 5,
+    "attack": 0, "defense": 12
+  },
+  "11": {
+    "name": "矮人战斧", "description": "矮人打造的强力战斧。", "price": 450, "type": "Equipment",
+    "slot": "Weapon", "rarity": "LEGENDARY", "level_req": 6,
+    "attack": 30, "defense": 0
+  },
+  "12": {
+    "name": "矮人板甲", "description": "矮人打造的坚固板甲。", "price": 400, "type": "Equipment",
+    "slot": "Chest", "rarity": "LEGENDARY", "level_req": 6,
+    "attack": 0, "defense": 15
+  },
+  "13": {
+    "name": "兽人弯刀", "description": "兽人使用的锋利弯刀。", "price": 550, "type": "Equipment",
+    "slot": "Weapon", "rarity": "MYTHIC", "level_req": 7,
+    "attack": 35, "defense": 0
+  },
+  "14": {
+    "name": "兽人皮甲", "description": "兽人制作的坚韧皮甲。", "price": 500, "type": "Equipment",
+    "slot": "Chest", "rarity": "MYTHIC", "level_req": 7,
+    "attack": 0, "defense": 18
+  },
+  "15": {
+    "name": "骑士长剑", "description": "骑士使用的精制长剑。", "price": 700, "type": "Equipment",
+    "slot": "Weapon", "rarity": "MYTHIC", "level_req": 8,
+    "attack": 42, "defense": 0
+  },
+  "16": {
+    "name": "骑士铠甲", "description": "骑士穿戴的重型铠甲。", "price": 650, "type": "Equipment",
+    "slot": "Chest", "rarity": "MYTHIC", "level_req": 8,
+    "attack": 0, "defense": 22
+  },
+  "17": {
+    "name": "战团长之剑", "description": "战团长专属武器，威力无穷。", "price": 900, "type": "Equipment",
+    "slot": "Weapon", "rarity": "DIVINE", "level_req": 9,
+    "attack": 50, "defense": 0
+  },
+  "18": {
+    "name": "战团长铠甲", "description": "战团长专属铠甲，刀枪不入。", "price": 850, "type": "Equipment",
+    "slot": "Chest", "rarity": "DIVINE", "level_req": 9,
+    "attack": 0, "defense": 28
+  },
+  "19": {
+    "name": "翼人短刃", "description": "翼人族战士使用的轻盈短刃。", "price": 1100, "type": "Equipment",
+    "slot": "Weapon", "rarity": "DIVINE", "level_req": 10,
+    "attack": 58, "defense": 0
+  },
+  "20": {
+    "name": "翼人羽甲", "description": "用翼人羽毛编织的轻甲。", "price": 1050, "type": "Equipment",
+    "slot": "Chest", "rarity": "DIVINE", "level_req": 10,
+    "attack": 0, "defense": 32
+  },
+  "21": {
+    "name": "天空之刃", "description": "传说中的天空之刃，拥有风的力量。", "price": 1500, "type": "Equipment",
+    "slot": "Weapon", "rarity": "GODLY", "level_req": 11,
+    "attack": 70, "defense": 0
+  },
+  "22": {
+    "name": "星辰铠甲", "description": "镶嵌星辰碎片的华丽铠甲。", "price": 1400, "type": "Equipment",
+    "slot": "Chest", "rarity": "GODLY", "level_req": 11,
+    "attack": 0, "defense": 40
+  },
+  "23": {
+    "name": "龙息剑", "description": "蕴含龙息力量的圣剑。", "price": 2000, "type": "Equipment",
+    "slot": "Weapon", "rarity": "GODLY", "level_req": 12,
+    "attack": 85, "defense": 0
+  },
+  "24": {
+    "name": "龙鳞甲", "description": "用龙鳞打造的无敌铠甲。", "price": 1900, "type": "Equipment",
+    "slot": "Chest", "rarity": "GODLY", "level_req": 12,
+    "attack": 0, "defense": 50
+  },
+  "301": {
+    "name": "初级治疗药水", "description": "能恢复少量生命值。", "price": 20, "type": "Consumable",
+    "stackable": true
+  },
+  "302": {
+    "name": "中级治疗药水", "description": "能恢复较多生命值。", "price": 30, "type": "Consumable",
+    "stackable": true
+  },
+  "401": {
+    "name": "铁矿石", "description": "用于锻造武器和护甲的基础材料。", "price": 10, "type": "Material",
+    "stackable": true
+  }
+}

@@ -1,0 +1,66 @@
+{"Boss": [
+  {"id":"1",
+"name": "熔岩巨兽",
+"damage": 80,
+"hp": 500,
+"defense": 20,
+"skill": "熔岩爆发",
+"isBoss": true,
+"bossPhase": 1,
+"maxPhase": 3,
+"chapter": 2,
+"description": "熔火之心的守护者，拥有强大的火焰力量"
+},
+{
+"id":"2",
+"name": "冰霜巨龙",
+"damage": 90,
+"hp": 600,
+"defense": 25,
+"skill": "冰霜吐息",
+"isBoss": true,
+"bossPhase": 1,
+"maxPhase": 3,
+"chapter": 4,
+"description": "皇家宝库的守护者，能操控冰霜之力"
+},
+{
+"id":"3",
+"name": "暗影领主",
+"damage": 100,
+"hp": 700,
+"defense": 30,
+"skill": "暗影穿刺",
+"isBoss": true,
+"bossPhase": 1,
+"maxPhase": 3,
+"chapter": 6,
+"description": "暗影之地的统治者，掌握黑暗魔法"
+},
+  {
+    "id":"4",
+    "name": "新任魔法师",
+    "damage": 120,
+    "hp": 400,
+    "defense": 30,
+    "skill": "烈火",
+    "isBoss": true,
+    "bossPhase": 1,
+    "maxPhase": 3,
+    "chapter": 6,
+    "description": "旅途的最后或是开始"
+  },
+{
+"id":"5",
+"name": "猎场巨兽",
+"damage": 60,
+"hp": 300,
+"defense": 15,
+"skill": "狂暴攻击",
+"isBoss": false,
+"bossPhase": 1,
+"maxPhase": 1,
+"chapter": 4,
+"description": "占据兽人猎场的强大怪物"
+}
+]}

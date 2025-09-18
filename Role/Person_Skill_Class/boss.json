@@ -1,0 +1,95 @@
+{
+  "Boss": [
+    {
+      "id": "1",
+      "name": "熔岩巨兽",
+      "damage": 50,
+      "hp": 300,
+      "defense": 15,
+      "skill": "熔岩爆发",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 2,
+      "description": "熔火之心的守护者，拥有强大的火焰力量"
+    },
+    {
+      "id": "8",
+      "name": "兽人酋长",
+      "damage": 70,
+      "hp": 400,
+      "defense": 15,
+      "skill": "碎颅重击",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 2,
+      "description": "兽人部落的首领，是兽人中最强大的力量"
+    },
+    {
+      "id": "2",
+      "name": "炽焰巨龙",
+      "damage": 90,
+      "hp": 600,
+      "defense": 25,
+      "skill": "狱焰吐息",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 4,
+      "description": "皇家宝库的守护者，能操控炽焰之力"
+    },
+    {
+      "id": "3",
+      "name": "天空守护者",
+      "damage": 100,
+      "hp": 700,
+      "defense": 30,
+      "skill": "烈风腾袭",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 6,
+      "description": "据传与天空一同诞生，并掌握了风之权能"
+    },
+    {
+      "id": "9",
+      "name": "翼人族族长",
+      "damage": 110,
+      "hp": 750,
+      "defense": 35,
+      "skill": "天旋罡风",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 6,
+      "description": "曾经你的手下败将，如今却获得了不可思议的力量"
+    },
+    {
+      "id": "4",
+      "name": "新任魔法师",
+      "damage": 150,
+      "hp": 400,
+      "defense": 30,
+      "skill": "烈火",
+      "isBoss": true,
+      "bossPhase": 1,
+      "maxPhase": 3,
+      "chapter": 6,
+      "description": "旅途的最后或是开始"
+    },
+    {
+      "id": "5",
+      "name": "猎场巨兽",
+      "damage": 25,
+      "hp": 800,
+      "defense": 30,
+      "skill": "狂暴攻击",
+      "isBoss": false,
+      "bossPhase": 1,
+      "maxPhase": 1,
+      "chapter": 4,
+      "description": "占据兽人猎场的巨兽，似乎拥有着绝对的防御"
+    }
+  ]
+}
